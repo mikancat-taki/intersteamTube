@@ -74,7 +74,7 @@
   }
   
   .floating {
-    animation: float 6s ease-in-out infinite;
+    /* Removed animation for stability */
   }
   
   .game-canvas {
@@ -106,9 +106,33 @@
     height: 315px;
   }
   
+  .youtube-container-large {
+    @apply relative w-full bg-black rounded-xl overflow-hidden;
+    height: 80vh;
+    min-height: 600px;
+  }
+  
+  @media (max-width: 1024px) {
+    .youtube-container-large {
+      height: 70vh;
+      min-height: 500px;
+    }
+  }
+  
   @media (max-width: 768px) {
     .youtube-container {
       height: 200px;
+    }
+    .youtube-container-large {
+      height: 60vh;
+      min-height: 400px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .youtube-container-large {
+      height: 50vh;
+      min-height: 300px;
     }
   }
 }

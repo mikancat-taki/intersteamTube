@@ -18,23 +18,22 @@ export default function AnimatedBackground() {
       canvas.height = window.innerHeight;
     };
 
-    const animateWaves = () => {
+    const drawStaticBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Create multiple wave layers
+      // Create static wave layers
       for (let i = 0; i < 3; i++) {
         ctx.beginPath();
         ctx.moveTo(0, canvas.height);
 
         const waveHeight = 100 + i * 20;
         const frequency = 0.01 + i * 0.005;
-        const speed = 0.02 + i * 0.01;
-        const opacity = 0.1 - i * 0.02;
+        const opacity = 0.08 - i * 0.02;
 
-        for (let x = 0; x <= canvas.width; x += 2) {
+        for (let x = 0; x <= canvas.width; x += 4) {
           const y = canvas.height - waveHeight + 
-                   Math.sin((x * frequency) + (time * speed)) * 50 +
-                   Math.sin((x * frequency * 2) + (time * speed * 1.5)) * 25;
+                   Math.sin(x * frequency) * 40 +
+                   Math.sin(x * frequency * 2) * 20;
           ctx.lineTo(x, y);
         }
 
@@ -48,18 +47,28 @@ export default function AnimatedBackground() {
         ctx.fillStyle = gradient;
         ctx.fill();
       }
-
-      time += 1;
-      animationId = requestAnimationFrame(animateWaves);
+      
+      // Add subtle stars
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      for (let i = 0; i < 100; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height * 0.7;
+        ctx.beginPath();
+        ctx.arc(x, y, Math.random() * 1.5, 0, 2 * Math.PI);
+        ctx.fill();
+      }
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    animateWaves();
+    drawStaticBackground();
+    
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      drawStaticBackground();
+    });
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationId);
     };
   }, []);
 

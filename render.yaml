@@ -1,0 +1,16 @@
+version: 1
+services:
+  - type: web
+    name: transparent-intertube
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 20
+    domains:
+      - transparent-intertube.onrender.com

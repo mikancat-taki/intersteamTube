@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application called "透明インターTube" (Transparent Inter Tube) - a Japanese YouTube viewing application with integrated browser games. The project is built with React on the frontend, Express.js on the backend, and uses a monorepo structure with shared types and schemas.
+This is a full-stack web application called "透明インターTube" (Transparent Inter Tube) - a high-speed, anonymous, and secure YouTube viewing application with integrated browser games. The project features multiple video playback modes, full-screen video display, and six fully playable browser games with a space-themed UI design.
 
 ## User Preferences
 
@@ -35,20 +35,25 @@ Preferred communication style: Simple, everyday language.
 ## Key Components
 
 ### Core Application Features
-1. **YouTube Player**: Custom component for embedding and playing YouTube videos
-2. **Browser Games**: Collection of browser-based games including:
-   - Snake Game (functional)
-   - Memory Card Game (functional)
-   - Pong Game (in development)
-   - Tetris Game (placeholder)
-   - Platformer Game (placeholder)
-   - Space Invaders Game (placeholder)
+1. **Enhanced YouTube Player**: 
+   - Multiple playback modes (Normal, No-Cookie, Proxy, Embed)
+   - Large-screen display (80vh max height)
+   - Third-party content protection settings
+   - URL/Video ID input support
+2. **Complete Browser Games Collection**:
+   - Snake Game (fully functional with scoring)
+   - Memory Card Game (8-pair color matching)
+   - Pong Game (2-player with scoring)
+   - Tetris Game (full block-falling puzzle with line clearing)
+   - Platformer Game (coin collection with physics)
+   - Space Invaders Game (shooting with lives and waves)
 
 ### UI Components
-- **AnimatedBackground**: Canvas-based animated wave effects
-- **ClockDisplay**: Real-time clock showing Japanese time
-- **Modal System**: Custom modal component for game overlays
-- **GameCanvas**: Reusable canvas component for game rendering
+- **StaticBackground**: Static wave-based space background (no animation for stability)
+- **ClockDisplay**: Real-time Japanese time and date display
+- **Modal System**: Comprehensive modal system for documentation, FAQ, terms, and privacy
+- **GameCanvas**: Advanced game rendering system with collision detection
+- **Enhanced YouTube Player**: Multi-mode video display with large screen support
 
 ### Shared Resources
 - **Schema**: User authentication schema with Zod validation
@@ -95,7 +100,13 @@ Preferred communication style: Simple, everyday language.
 - **Frontend**: Static build to `dist/public` directory
 - **Backend**: Bundled with esbuild to `dist/index.js`
 - **Database**: Ready for PostgreSQL with environment variable configuration
-- **Deployment**: Single-process deployment with static file serving
+- **Deployment**: Render.com compatible with automated deployment
+
+### Render.com Configuration
+- **Service**: Web Service on free tier
+- **Build Command**: npm ci && npm run build
+- **Start Command**: npm start
+- **Environment**: Node.js 20.x with production optimizations
 
 ### Environment Configuration
 - **Database URL**: Required environment variable for PostgreSQL connection
