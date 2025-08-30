@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": mimimimktube",
+  "name":mimimimktube",
   "version": "1.0",
   "description": "YouTubeを見れるアプリ。",
   "permissions": ["activeTab"],
