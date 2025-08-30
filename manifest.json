@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name":mimimimktube",
+  "name": "私の初めての拡張機能",
   "version": "1.0",
-  "description": "YouTubeを見れるアプリ。",
+  "description": "これは私の最初のChrome拡張機能です。",
   "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",
